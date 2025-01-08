@@ -26,7 +26,7 @@ pipeline  {
     stage ('Build'){
       steps {
         sh 'mvn validate'
-        sh 'clean package'
+        sh 'mvn clean package'
       }
     }
   }
