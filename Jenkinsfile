@@ -9,6 +9,9 @@
 
 pipeline  {
   agent any
+  tools{
+    maven 'MAVEN-3.9.9'
+  }
   stages {
     stage('Git')  {
       steps {
