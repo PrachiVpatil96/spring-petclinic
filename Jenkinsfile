@@ -12,7 +12,7 @@ pipeline  {
   stages {
     stage('Git')  {
       steps {
-        sh "https://github.com/PrachiVpatil96/spring-petclinic.git"
+        sh " git clone https://github.com/PrachiVpatil96/spring-petclinic.git"
       }
     }
     stage('Build') {
