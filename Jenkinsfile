@@ -12,7 +12,8 @@ pipeline  {
   stages {
     stage('Git')  {
       steps {
-        sh " git clone https://github.com/PrachiVpatil96/spring-petclinic.git"
+        git url: "https://github.com/PrachiVpatil96/spring-petclinic.git"
+             branch: master
       }
     }
     stage('Get-Version') {
