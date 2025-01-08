@@ -15,9 +15,14 @@ pipeline  {
         sh " git clone https://github.com/PrachiVpatil96/spring-petclinic.git"
       }
     }
-    stage('Build') {
+    stage('Get-Version') {
       steps {
         sh 'java --version'
+      }
+    }
+    stage ('Build'){
+      steps {
+        sh 'mvn validate'
       }
     }
   }
