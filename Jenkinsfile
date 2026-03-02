@@ -24,12 +24,9 @@ pipeline {
         stage('SonarQube Analysis') {
             steps {
                 withSonarQubeEnv('SonarQube') {
-                    sh '''
-                    mvn sonar:sonar \
-                    -Dsonar.projectKey=spc\
-                    -Dsonar.host.url=http://13.201.16.127/:9000 \
-                    -Dsonar.login=$SONAR_AUTH_TOKEN
-                    '''
+                
+                    sh 'mvn sonar:sonar -Dsonar.projectKey=spc'
+                
                 }
             }
         }
