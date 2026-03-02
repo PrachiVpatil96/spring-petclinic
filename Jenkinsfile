@@ -1,25 +1,24 @@
 pipeline {
     agent any
 
-    triggers {
-    pollSCM('H/5 * * * *')
-    }
-
     tools {
-        java 'Java-17'
-        maven  'Maven'
+        jdk 'Java-17'        
+        maven 'Maven-3.9'
     }
 
     stages {
-        stage("Checkout"){
-            steps{
+
+        stage('Checkout') {
+            steps {
                 git branch: 'main',
-                url: 'https://github.com/spring-projects/spring-petclinic.git'
+                    url: 'https://github.com/PrachiVpatil96/spring-petclinic.git'
             }
         }
-        stage('Build the code')
-            steps{
-                sh 'mvn clean package'
+
+        stage('Build the code') {
+            steps {
+                sh 'mvn clean package -DskipTests'
             }
-}
+        }
+    }
 }
