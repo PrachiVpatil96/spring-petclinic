@@ -30,5 +30,10 @@ pipeline {
                 }
             }
         }
+        stage('Docker Build'){
+            steps{
+                sh 'docker image buiild -t petclinic:1.0 .'
+            }
+        }
     }
 }
