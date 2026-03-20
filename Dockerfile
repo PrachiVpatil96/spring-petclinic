@@ -21,7 +21,7 @@
 
 # EXPOSE 8080
 
-FROM FROM amazoncorretto:17
+FROM amazoncorretto:17
 
 # Set working directory inside container
 WORKDIR /app
