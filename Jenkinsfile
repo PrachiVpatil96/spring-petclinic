@@ -54,7 +54,7 @@ pipeline {
 
         stage('Build Docker Image') {
             steps {
-                sh 'docker build -t prachiii123/flyingduck:${BUILD_NUMBER} .'
+                sh 'docker image build -t prachiii123/flyingduck:${BUILD_NUMBER} .'
             }
         }
 }

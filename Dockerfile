@@ -27,7 +27,7 @@ FROM amazoncorretto:17
 WORKDIR /spc-app
 
 # Copy the Maven-built JAR from target/
-COPY target/spring-petclinic.jar /app/spring-petclinic.jar
+COPY */target/spring-petclinic.jar /app/spring-petclinic.jar
 
 # Expose the port the app runs on
 EXPOSE 8080
