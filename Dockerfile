@@ -21,10 +21,17 @@
 
 # EXPOSE 8080
 
-FROM openjdk:17-jdk-slim
+# Use official lightweight OpenJDK 17
+FROM openjdk:17-slim
 
+# Set working directory inside container
+WORKDIR /app
+
+# Copy the Maven-built JAR from target/
 COPY target/spring-petclinic.jar /app/spring-petclinic.jar
 
+# Expose the port the app runs on
 EXPOSE 8080
 
+# Run the Spring Boot JAR
 ENTRYPOINT ["java","-jar","/app/spring-petclinic.jar"]
