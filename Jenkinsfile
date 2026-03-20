@@ -58,19 +58,19 @@ pipeline {
             }
         }
         stage("Docker & Push") {
-    steps {
-        script {
-            // Use Docker Hub credentials stored in Jenkins
-            withDockerRegistry([credentialsId: 'dockerhub', url: "https://index.docker.io/v1/"]) {
+                steps {
+                    script {
+                            // Use Docker Hub credentials stored in Jenkins
+                            withDockerRegistry([credentialsId: 'dockerhub', url: "https://index.docker.io/v1/"]) {
                 
-                // Tag image with Docker Hub repo and Jenkins build number
-                sh "docker tag spc:${BUILD_NUMBER} prachiii123/flyingduck:${BUILD_NUMBER}"
+                            // Tag image with Docker Hub repo and Jenkins build number
+                            sh "docker tag spc:${BUILD_NUMBER} prachiii123/flyingduck:${BUILD_NUMBER}"
 
-                // Push image to Docker Hub
-                sh "docker push prachiii123/flyingduck:${BUILD_NUMBER}"
+                            // Push image to Docker Hub
+                            sh "docker push prachiii123/flyingduck:${BUILD_NUMBER}"
 
-                echo " Docker image prachiii123/flyingduck:${BUILD_NUMBER} pushed successfully"
-            }
+                            echo " Docker image prachiii123/flyingduck:${BUILD_NUMBER} pushed successfully"
+                    }
         }
     }
 }
