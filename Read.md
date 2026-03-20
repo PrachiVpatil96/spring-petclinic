@@ -122,7 +122,7 @@ docker run -d -p 80:8080 --name pet spc:latest
 ### 10. 🌐 Access Application
 
 ```
-http://your-domain-name.com
+https://your-domain-name.com
 ```
 
 ---
@@ -161,7 +161,7 @@ Key stages:
 * Configure GitHub webhook:
 
 ```
-http://<jenkins-url>/github-webhook/
+https://<jenkins-url>/github-webhook/
 ```
 
 * Trigger events:
