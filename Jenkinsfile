@@ -57,14 +57,14 @@ pipeline {
                 sh 'docker image build -t spc:${BUILD_NUMBER} .'
             }
         }
-        stage("Docker Build & Push") {
+        stage("Docker & Push") {
     steps {
         script {
             // Use Docker Hub credentials stored in Jenkins
             withDockerRegistry([credentialsId: 'dockerhub', url: "https://index.docker.io/v1/"]) {
                 
                 // Tag image with Docker Hub repo and Jenkins build number
-                sh "docker tag spc prachiii123/flyingduck:${BUILD_NUMBER}"
+                sh "docker tag spc:${BUILD_NUMBER} prachiii123/flyingduck:${BUILD_NUMBER}"
 
                 // Push image to Docker Hub
                 sh "docker push prachiii123/flyingduck:${BUILD_NUMBER}"
