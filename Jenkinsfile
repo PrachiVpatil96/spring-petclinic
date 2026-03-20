@@ -61,7 +61,7 @@ pipeline {
                 steps {
                     script {
                             // Use Docker Hub credentials stored in Jenkins
-                            withDockerRegistry([credentialsId: 'dockerhub', url: "https://index.docker.io/v1/"]) {
+                            withCredentials([credentialsId: 'dockerhub', url: "https://index.docker.io/v1/"]) {
                 
                             // Tag image with Docker Hub repo and Jenkins build number
                             sh "docker tag spc:${BUILD_NUMBER} prachiii123/flyingduck:${BUILD_NUMBER}"
