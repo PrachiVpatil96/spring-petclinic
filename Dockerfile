@@ -21,8 +21,7 @@
 
 # EXPOSE 8080
 
-# Use official lightweight OpenJDK 17
-FROM openjdk:17-slim
+FROM FROM amazoncorretto:17
 
 # Set working directory inside container
 WORKDIR /app
