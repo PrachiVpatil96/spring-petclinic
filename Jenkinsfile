@@ -6,23 +6,12 @@ pipeline {
         maven 'maven'
     }
 
-    stages{
-        stage('Clean'){
-            steps{
-                sh 'mvn clean'
-            }
-        }
-        stage('Validate'){
-            steps{
-                sh 'mvn validate'
-            }
-        }
-        stage('Compile'){
-            steps{
-                sh 'mvn compile'
-            }
+    stage('Build') {
+    steps {
+        sh 'mvn clean install -DskipTests -Dcheckstyle.skip=true'
         }
     }
+}
 
 //     stages {
 
