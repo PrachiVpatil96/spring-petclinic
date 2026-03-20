@@ -29,12 +29,29 @@ pipeline {
         }
         stage('Quality Gate Check') {
             steps {
-                timeout(time: 5, unit: 'MINUTES') {
+                timeout(time: 2, unit: 'MINUTES') {
                     // Waits for SonarQube Quality Gate result
                     waitForQualityGate abortPipeline: true
                 }
             }
         }
+
+        
+        
+        post {
+        failure {
+            echo "🚨 Build failed due to Quality Gate failure or test failures!"
+        }
+        success {
+            echo "✅ Build passed! Code coverage is at least 80%."
+        }
+    }
+
+    // Package the application
+        stage('package')
+            steps{
+                sh 'mvn package'
+            }
 
     } // end of stages
 }
