@@ -220,6 +220,12 @@ sudo systemctl start docker
 ![New-Pipeline](image-1.png)
 ![alt text](image-2.png)
 ![alt text](image-3.png)
+![alt text](image-4.png)
+![alt text](image-5.png)
+![alt text](image-6.png)
+![alt text](image-7.png)
+![alt text](image-8.png)
+![alt text](image-9.png)
 
 
 ---
@@ -246,3 +252,5 @@ sudo systemctl start docker
 ##  Author
 
 Prachi Vinod Patil
+
+squ_d2cfc7fc65cc95bd84d9c472b88515781495aba9

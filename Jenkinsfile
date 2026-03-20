@@ -6,20 +6,29 @@ pipeline {
         maven 'maven'
     }
 
-    stages {  
+    stages {
 
         stage('Build') {
             steps {
                 sh 'mvn clean install -DskipTests -Dcheckstyle.skip=true'
             }
         }
-        stage('Test'){
-            steps{
+
+        stage('Test') {
+            steps {
                 sh 'mvn test'
             }
         }
 
-    }
+        stage('SonarQube Analysis') {
+            steps {
+                withSonarQubeEnv('sonar') {
+                    sh "mvn clean verify sonar:sonar -Dsonar.projectKey=spring-pet-clinic"
+                }
+            }
+        }
+
+    } // end of stages
 }
 //     stages {
 
