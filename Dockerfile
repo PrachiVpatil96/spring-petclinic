@@ -11,12 +11,20 @@
 # EXPOSE 8080
 # CMD ["java", "-jar", "spring-petclinic.jar"]
 
-FROM tomcat:9-jdk17
+# FROM tomcat:9-jdk17
 
-# Remove default apps
-RUN rm -rf /usr/local/tomcat/webapps/*
+# # Remove default apps
+# RUN rm -rf /usr/local/tomcat/webapps/*
 
-# Copy WAR file
-COPY target/*.war /usr/local/tomcat/webapps/ROOT.war
+# # Copy WAR file
+# COPY */target/*.jar /usr/local/tomcat/webapps/ROOT.jar
+
+# EXPOSE 8080
+
+FROM openjdk:17-jdk-slim
+
+COPY target/spring-petclinic.jar /app/spring-petclinic.jar
 
 EXPOSE 8080
+
+ENTRYPOINT ["java","-jar","/app/spring-petclinic.jar"]
