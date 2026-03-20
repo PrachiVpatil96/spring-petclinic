@@ -24,7 +24,7 @@
 FROM amazoncorretto:17
 
 # Set working directory inside container
-WORKDIR /app
+WORKDIR /spc-app
 
 # Copy the Maven-built JAR from target/
 COPY target/spring-petclinic.jar /app/spring-petclinic.jar
