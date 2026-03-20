@@ -13,6 +13,10 @@ pipeline {
                 sh 'mvn clean install -DskipTests -Dcheckstyle.skip=true'
             }
         }
+        stage('Test'){
+            steps{
+                sh 'mvn test'
+            }
 
     }
 }
