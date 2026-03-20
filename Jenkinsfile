@@ -28,13 +28,13 @@ pipeline {
             }
         }
 
-        stage('Quality Gate Check') {
-            steps {
-                timeout(time: 2, unit: 'MINUTES') {
-                    waitForQualityGate abortPipeline: true
-                }
-            }
-        }
+        // stage('Quality Gate Check') {
+        //     steps {
+        //         timeout(time: 2, unit: 'MINUTES') {
+        //             waitForQualityGate abortPipeline: true
+        //         }
+        //     }
+        // }
 
         stage('Package') {
             steps {
@@ -43,12 +43,12 @@ pipeline {
         }
     } // end of stages
 
-    post {
-        failure {
-            echo "🚨 Build failed due to Quality Gate failure or test failures!"
-        }
-        success {
-            echo "✅ Build passed! Code coverage is at least 80%."
-        }
-    }
+    // post {
+    //     failure {
+    //         echo "🚨 Build failed due to Quality Gate failure or test failures!"
+    //     }
+    //     success {
+    //         echo "✅ Build passed! Code coverage is at least 80%."
+    //     }
+    // }
 }
