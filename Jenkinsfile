@@ -2,17 +2,20 @@ pipeline {
     agent any
 
     tools {
-        jdk 'jdk-17'        
+        jdk 'jdk-17'
         maven 'maven'
     }
 
-    stage('Build') {
-    steps {
-        sh 'mvn clean install -DskipTests -Dcheckstyle.skip=true'
+    stages {  
+
+        stage('Build') {
+            steps {
+                sh 'mvn clean install -DskipTests -Dcheckstyle.skip=true'
+            }
         }
+
     }
 }
-
 //     stages {
 
 //         stage('Checkout') {
@@ -44,3 +47,4 @@ pipeline {
 //         }
 //     }
 // }
+
