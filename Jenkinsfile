@@ -41,7 +41,7 @@ pipeline {
                 sh 'mvn package'
             }
         }
-    } // end of stages
+     // end of stages
 
     // post {
     //     failure {
@@ -51,4 +51,12 @@ pipeline {
     //         echo "✅ Build passed! Code coverage is at least 80%."
     //     }
     // }
+
+        stage('Build Docker Image') {
+            steps {
+                sh "docker build -t spc:${BUILD_NUMBER} ."
+                }
+        }
 }
+}
+
