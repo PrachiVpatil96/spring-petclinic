@@ -27,10 +27,10 @@ FROM amazoncorretto:17
 WORKDIR /spc-app
 
 # Copy the Maven-built JAR from target/
-COPY target/spring-petclinic.jar /app/spring-petclinic.jar
+COPY target/*.jar /spc-app/app.jar
 
 # Expose the port the app runs on
 EXPOSE 8080
 
 # Run the Spring Boot JAR
-ENTRYPOINT ["java","-jar","/app/spring-petclinic.jar"]
+ENTRYPOINT ["java","-jar","app.jar"]
