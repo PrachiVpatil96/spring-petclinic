@@ -17,7 +17,7 @@ jobs:
           distribution: 'temurin'
           cache: 'maven'
       - name: Buld maven clean package
-        uses: mvn -B clean package --file pom.xml
+        run: mvn -B clean package --file pom.xml
       - name: Upload Artifact
         uses: actions/upload-artifact@v4
         with:
